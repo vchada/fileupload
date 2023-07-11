@@ -5,9 +5,11 @@
       </mat-card-header>
       <mat-card-content>
         <form (ngSubmit)="uploadFile()" #fileUploadForm="ngForm">
-          <mat-form-field>
-            <input matInput type="file" (change)="onFileSelected($event)" name="file" required>
-          </mat-form-field>
+          <!-- <mat-form-field> -->
+            <!-- <input matInput type="file" (change)="onFileSelected($event)" name="file" required> -->
+            <button mat-raised-button (click)="fileInput.click()">Select File to Upload</button>
+            <input id="fileInput" #fileInput hidden type="file" (change)="onFileSelected($event)" name="file">
+          <!-- </mat-form-field> -->
           <button mat-raised-button color="primary" type="submit" [disabled]="!selectedFile">Upload</button>
         </form>
         <mat-progress-spinner *ngIf="uploading" mode="indeterminate"></mat-progress-spinner>
